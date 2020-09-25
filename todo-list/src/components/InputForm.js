@@ -6,34 +6,36 @@ export default class InputForm extends React.Component {
     text: "",
   };
 
-  handleChange = (e) => {
+  handleChange = e => {
     this.setState({
       text: e.target.value,
     });
   };
 
-  handleSubmit = (e) => {
+  handleSubmit = e => {
     e.preventDefault();
     this.props.onSubmit({
       id: shortid.generate(),
       text: this.state.text,
       complete: false,
     });
+    this.setState({
+      text: "",
+    });
   };
 
   render() {
     return (
-      <div>
-        <form onSubmit={this.handleSubmit}>
-          <input
-            name="text"
-            value={this.state.text}
-            onChange={this.handleChange}
-            placeholder="Add-todo"
-          />
-          <button onClick={this.handleSubmit}>Add todo</button>
-        </form>
-      </div>
+      <form onSubmit={this.handleSubmit}>
+        <input
+          name="text"
+          value={this.state.text}
+          onChange={this.handleChange}
+          placeholder="Add-todo"
+          autoComplete="off"
+        />
+        <button onClick={this.handleSubmit}>Add todo</button>
+      </form>
     );
   }
 }
