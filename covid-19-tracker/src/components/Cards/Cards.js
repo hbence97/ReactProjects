@@ -5,7 +5,6 @@ import styles from "./Cards.module.css";
 import cx from "classnames";
 
 const Cards = props => {
-  console.log(props);
   if (!props.data.confirmed || !props.data.recovered || !props.data.deaths) {
     return "Loading..";
   }
@@ -71,7 +70,7 @@ const Cards = props => {
           component={Card}
           xs={12}
           md={3}
-          className={cx(styles.card, styles.recovered)}
+          className={cx(styles.card, styles.deaths)}
         >
           <CardContent>
             <Typography color="textSecondary" gutterBottom>
