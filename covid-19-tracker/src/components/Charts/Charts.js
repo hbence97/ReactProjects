@@ -1,3 +1,4 @@
+/*
 import React, { useState, useEffect } from "react";
 //import { Line } from "react-chartjs-2";
 import { fetchDailyData } from "../../api";
@@ -17,7 +18,7 @@ const Charts = () => {
     fetchAPI();
   });
 
-  /*  const lineChart = (
+    const lineChart = (
     <Line
       data={{
         labels: dailyData,
@@ -62,10 +63,11 @@ const Charts = () => {
       }}
     />
   ) : null;
-  */
+  
 
   //lineChart();
   return <h1>Chart</h1>;
 };
 
 export default Charts;
+*/

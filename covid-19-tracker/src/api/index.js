@@ -2,8 +2,6 @@ import axios from "axios";
 
 const url = "https://covid19.mathdro.id/api";
 const dailyUrl = "https://disease.sh/v3/covid-19/all";
-//const d = new Date();
-//d.setDate(d.getDate() - 1);
 
 export const fetchData = async () => {
   try {

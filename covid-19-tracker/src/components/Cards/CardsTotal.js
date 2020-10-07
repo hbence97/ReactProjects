@@ -1,10 +1,10 @@
 import React from "react";
 import { Card, CardContent, Typography, Grid } from "@material-ui/core";
 import CountUp from "react-countup";
-import styles from "./Cards.module.css";
+import styles from "./CardsTotal.module.css";
 import cx from "classnames";
 
-const Cards = props => {
+const CardsTotal = props => {
   if (!props.data.confirmed || !props.data.recovered || !props.data.deaths) {
     return "Loading..";
   }
@@ -31,10 +31,11 @@ const Cards = props => {
               />
             </Typography>
             <Typography color="textSecondary">
-              {new Date(props.data.lastUpdate).toDateString()}
+              Untill{" "}
+              {new Date(props.data.lastUpdate).toISOString().slice(0, 10)}
             </Typography>
             <Typography variant="body2">
-              Number of active cases of covid19
+              Number of active cases of COVID-19
             </Typography>
           </CardContent>
         </Grid>
@@ -58,9 +59,12 @@ const Cards = props => {
                 separator=","
               />
             </Typography>
-            <Typography color="textSecondary">Real Date</Typography>
+            <Typography color="textSecondary">
+              Untill{" "}
+              {new Date(props.data.lastUpdate).toISOString().slice(0, 10)}
+            </Typography>
             <Typography variant="body2">
-              Number of recoveries from covid19
+              Number of recoveries from COVID-19
             </Typography>
           </CardContent>
         </Grid>
@@ -84,9 +88,12 @@ const Cards = props => {
                 separator=","
               />
             </Typography>
-            <Typography color="textSecondary">Real Date</Typography>
+            <Typography color="textSecondary">
+              Untill{" "}
+              {new Date(props.data.lastUpdate).toISOString().slice(0, 10)}
+            </Typography>
             <Typography variant="body2">
-              Number of deaths cause by covid19
+              Number of deaths caused by COVID-19
             </Typography>
           </CardContent>
         </Grid>
@@ -95,4 +102,4 @@ const Cards = props => {
   );
 };
 
-export default Cards;
+export default CardsTotal;
