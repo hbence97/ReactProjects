@@ -10,10 +10,31 @@ input[type="number"] {
   -moz-appearance: textfield;
 }
 
+.saved-calculation-span {
+  font-size: 26px;
+  font-weight: 600;
+}
+
+.saved-calculation {
+  position: relative;
+  top: 10px;
+}
+
+.saved-calculation button {
+  color: red;
+  background-color: rgba(0, 0, 0, 0.842);
+  margin-left: 4px;
+  cursor: pointer;
+  border: none;
+  padding: 12px;
+  border-radius: 50%;
+  outline: none;
+}
+
 .input,
 .result {
   display: inline-block;
-  margin: 20px 10px 15px 10px;
+  margin: 30px 10px 15px 10px;
 }
 
 form input {
@@ -29,6 +50,27 @@ form input:focus {
   border: 5px solid blue;
 }
 
+.operations-button {
+  margin-bottom: 10px;
+}
+
+.operations-button button {
+  padding: 10px;
+  width: 46px;
+  margin: 2px;
+  background-color: rgb(216, 152, 33);
+  color: white;
+  font-size: 25px;
+  border: 2px solid black;
+  border-radius: 6px;
+  outline: none;
+}
+
+.operations-button button:hover {
+  cursor: pointer;
+  background-color: rgba(216, 152, 33, 0.8);
+}
+
 .numbers-button button {
   padding: 12px;
   margin: 2px;
@@ -38,10 +80,10 @@ form input:focus {
   color: white;
   border-radius: 6px;
   outline: none;
+  cursor: pointer;
 }
 
 .numbers-button button:hover {
-  cursor: pointer;
   background-color: rgba(161, 160, 142, 0.6);
 }
 
@@ -73,23 +115,19 @@ form input:focus {
   background-color: rgb(218, 30, 30);
 }
 
-.operations-button {
-  margin-bottom: 10px;
-}
-
-.operations-button button {
+.save-button button {
+  margin-top: 5px;
   padding: 10px;
-  width: 46px;
-  margin: 2px;
-  background-color: rgb(216, 152, 33);
+  font-size: 22px;
+  font-weight: 600;
   color: white;
-  font-size: 25px;
-  border: 2px solid black;
+  background-color: rgb(69, 161, 41);
+  border: 3px solid black;
   border-radius: 6px;
   outline: none;
+  cursor: pointer;
 }
 
-.operations-button button:hover {
-  cursor: pointer;
-  background-color: rgba(216, 152, 33, 0.8);
+.save-button button:hover {
+  background-color: rgb(66, 212, 21);
 }

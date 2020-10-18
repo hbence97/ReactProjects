@@ -5,6 +5,7 @@ export default class Calculator extends React.Component {
   state = {
     input: "",
     currentSum: 0,
+    savedCalculation: localStorage.getItem("Saved calculation"),
   };
 
   inputNumber = e => {
@@ -15,8 +16,6 @@ export default class Calculator extends React.Component {
   };
 
   deleteNumber = () => {
-    // x icon
-    // <i className="fa fa-times-circle fa-2x"></i>
     const currentInput = document.getElementById("currentInput").value;
     document.getElementById("currentInput").value = currentInput.substring(
       0,
@@ -33,6 +32,22 @@ export default class Calculator extends React.Component {
     this.setState({
       input: "",
       currentSum: 0,
+    });
+  };
+
+  saveToLocalStorage = () => {
+    localStorage.setItem("Saved calculation", this.state.currentSum);
+    const savedValueViaLocalStorage = localStorage.getItem("Saved calculation");
+    this.setState({
+      savedCalculation: savedValueViaLocalStorage,
+    });
+  };
+
+  clearLocalStorage = e => {
+    e.preventDefault();
+    localStorage.removeItem("Saved calculation");
+    this.setState({
+      savedCalculation: "",
     });
   };
 
@@ -127,6 +142,19 @@ export default class Calculator extends React.Component {
   render() {
     return (
       <div className="interface-root">
+        <span className="saved-calculation-span">Last saved result</span>
+        <form className="saved-calculation">
+          <input
+            id="saved-calculation"
+            type="number"
+            value={this.state.savedCalculation}
+            placeholder="Save a calculation"
+            readOnly
+          />
+          <button onClick={this.clearLocalStorage}>
+            <i className="fa fa-times-circle fa-2x"></i>
+          </button>
+        </form>
         <form className="input">
           <input
             onChange={this.handleChange}
@@ -187,7 +215,6 @@ export default class Calculator extends React.Component {
             0
           </button>
         </div>
-
         <div className="delete-buttons">
           <button onClick={this.deleteNumber} className="delete-number">
             DELETE NUMBER
@@ -195,6 +222,9 @@ export default class Calculator extends React.Component {
           <button onClick={this.deleteAll} className="delete-all">
             DELETE ALL
           </button>
+        </div>
+        <div className="save-button">
+          <button onClick={this.saveToLocalStorage}>Save the result</button>
         </div>
       </div>
     );
